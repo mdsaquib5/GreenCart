@@ -25,7 +25,7 @@ const MyOrders = () => {
   }, [user]);
 
   if (loading) return <p>Loading....</p>;
-  console.log("My Order", myOrders);
+    console.log("My Order", myOrders);
 
   return (
     <>

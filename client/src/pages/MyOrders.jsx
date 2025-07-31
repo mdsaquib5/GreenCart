@@ -60,16 +60,16 @@ const MyOrders = () => {
                   <div className="flex items-center mb-4 md:mb-0">
                     <div className="bg-primary/10 p-4 rounded-lg">
                       <img
-                        src={item.product.image[0]}
+                        src={item.product?.image?.[0]}
                         alt=""
                         className="w-16 h-16"
                       />
                     </div>
                     <div className="ml-4">
                       <h2 className="text-xl font-medium text-gray-800">
-                        {item.product.name}
+                        {item.product?.name || 'Product Name Not Available'}
                       </h2>
-                      <p>Category: {item.product.category}</p>
+                      <p>Category: {item.product?.category || 'Category Not Available'}</p>
                     </div>
                   </div>
 
@@ -83,7 +83,7 @@ const MyOrders = () => {
                   <div>
                     <p className="text-primary text-lg font-medium">
                       Amount: {currency}
-                      {item.product.offerPrice * item.quantity}
+                      {(item.product?.offerPrice || 0) * (item.quantity || 1)}
                     </p>
                   </div>
                 </div>

@@ -30,7 +30,9 @@ const ProductList = () => {
                             <tr>
                                 <th className="px-4 py-3 font-semibold truncate">Product</th>
                                 <th className="px-4 py-3 font-semibold truncate">Category</th>
-                                <th className="px-4 py-3 font-semibold truncate hidden md:block">Selling Price</th>
+                                <th className="px-4 py-3 font-semibold truncate hidden md:block">Product Price</th>
+                                <th className="px-4 py-3 font-semibold truncate">Selling Price</th>
+                                <th className="px-4 py-3 font-semibold truncate">Discount</th>
                                 <th className="px-4 py-3 font-semibold truncate">In Stock</th>
                             </tr>
                         </thead>
@@ -44,7 +46,9 @@ const ProductList = () => {
                                         <span className="truncate max-sm:hidden w-full">{product.name}</span>
                                     </td>
                                     <td className="px-4 py-3">{product.category}</td>
+                                    <td className="px-4 py-3 max-sm:hidden">{currency}{product.price}</td>
                                     <td className="px-4 py-3 max-sm:hidden">{currency}{product.offerPrice}</td>
+                                    <td className="px-4 py-3 max-sm:hidden"><p>{currency}{product.discountAmount}</p><p>{product.discountPercent}%</p></td>
                                     <td className="px-4 py-3">
                                         <label className="relative inline-flex items-center cursor-pointer text-gray-900 gap-3">
                                             <input onClick={() => toggleStock(product._id, !product.inStock)} checked={product.inStock} type="checkbox" className="sr-only peer" />

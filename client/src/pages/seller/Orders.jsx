@@ -38,7 +38,7 @@ const Orders = () => {
                                 {order.items.map((item, index) => (
                                     <div key={index} className="flex flex-col">
                                         <p className="font-medium">
-                                            {item.product.name}{' '} <span className="text-primary">x {item.quantity}</span>
+                                            {item.product?.name || 'Product not found'}{' '} <span className="text-primary">x {item.quantity}</span>
                                         </p>
                                     </div>
                                 ))}

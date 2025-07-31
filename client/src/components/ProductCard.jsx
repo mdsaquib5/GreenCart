@@ -36,6 +36,9 @@ const ProductCard = ({product}) => {
               <span className="text-gray-500/60 md:text-sm text-xs line-through">
               {currency}{product.price}
               </span>
+              <span className="text-primary md:text-sm text-xs ml-5">
+              {currency}{product.discountPercent}%
+              </span>
             </p>
             <div onClick={e => {e.stopPropagation()}} className="text-primary">
               {!cartItems[product._id] ? (

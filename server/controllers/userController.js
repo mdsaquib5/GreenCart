@@ -96,12 +96,7 @@ export const isAuth = async (req, res) => {
 //  Logout User : /api/user/logout
 export const logout = async (req, res) => {
     try {
-        res.clearCookie('token', {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-        });
+        res.clearCookie('token');
         return res.json({success: true, message: 'Logged Out'});
     } catch (error) {
         console.log(error.message);

@@ -67,7 +67,6 @@ export const register = async (req, res) => {
             secure: process.env.NODE_ENV === 'production',
             // sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'strict',
             sameSite: 'lax',
-            domain: 'https://green-cart-taupe.vercel.app',
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
@@ -104,7 +103,6 @@ export const logout = async (req, res) => {
             secure: process.env.NODE_ENV === 'production',
             // sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'strict',
             sameSite: 'lax',
-            domain: 'https://green-cart-taupe.vercel.app',
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
         return res.json({success: true, message: 'Logged Out New'});

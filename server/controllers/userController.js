@@ -98,7 +98,15 @@ export const isAuth = async (req, res) => {
 //  Logout User : /api/user/logout
 export const logout = async (req, res) => {
     try {
-        res.clearCookie('token', {domain: 'https://green-cart-taupe.vercel.app/domain'});
+        // res.clearCookie('token', {domain: 'https://green-cart-taupe.vercel.app/domain'});
+        res.cookie('token', 'New One', {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            // sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'strict',
+            sameSite: 'lax',
+            domain: 'https://green-cart-taupe.vercel.app',
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
         return res.json({success: true, message: 'Logged Out New'});
     } catch (error) {
         console.log(error.message);

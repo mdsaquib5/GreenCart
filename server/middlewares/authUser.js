@@ -5,7 +5,7 @@ const authUser = async (req, res, next) => {
     const { token } = req.cookies;
 
     if (!token) {
-        return res.json({success: false, message: 'Not Authorized'});
+        return res.json({success: false, message: 'Not Authorized - No token found'});
     }
 
     try {
@@ -16,12 +16,13 @@ const authUser = async (req, res, next) => {
                 req.body = {};
             }
             req.body.userId = tokenDecode.id;
+            // console.log('Auth middleware - Token verified successfully');
         }else{
-            return res.json({success: false, message: 'Not Authorized'});
+            return res.json({success: false, message: 'Not Authorized - Invalid token'});
         }
         next();
     } catch (error) {
-        console.log(error.message);
+        console.log('Auth middleware - Token verification error:', error.message);
         return res.json({success: false, message: error.message});
     }
 }
